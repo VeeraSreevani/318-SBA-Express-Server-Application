@@ -22,7 +22,7 @@ router
         }else res.json({error: "insufficient data"})
     })
 
-//get,update, or delete a specific book by ID
+//Get,update, or delete a specific book by ID
 router
     .route('/:booksID')
     .get((req,res)=>{
@@ -32,10 +32,13 @@ router
 })
     .patch((req,res)=>{
         const book = books.find((book,i)=>{
+            if(book.id == req.params.booksID){
+            //update the book fields
             for(const key in req.body){
                 books[i][key]= req.body[key]
             }
             return true
+        }
         })
         if(book){res.json(book)}
         else {res.status(404).send("book not found")}
@@ -51,13 +54,5 @@ router
         if(book){res.json(book)}
         else {res.status(404).send("book not found")}
     })
-
-    router
-        .route("/:booksID/reviews")
-        .get((req,res)=>{
-            const reviews = require("../data/books")
-            res.json(books.filter(review =>review.bookId===req.params.booksID))
-        })
-
 
 module.exports = router;
