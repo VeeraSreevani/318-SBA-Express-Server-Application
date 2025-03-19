@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reviews</title>
+</head>
+<body>
+    <form action="/reviews" method="POST">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" placeholder="User ID" required>
+    
+        <label for="bookId">Book ID:</label>
+        <input type="text" id="bookId" name="bookId" placeholder="Book ID" required>
+    
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" placeholder="Write your review" required></textarea>
+       
+        <button type="submit">Submit Review</button>
+    </form>
+    
+</body>
+</html>
